@@ -53,4 +53,4 @@ while not rospy.is_shutdown():
   r.sleep()
 ```
 
-Note that the `debug` variable could be a **node parameter** so it could be change on runtime.
+Note that the `debug` variable could be a **node parameter** so it could be changed on runtime.
