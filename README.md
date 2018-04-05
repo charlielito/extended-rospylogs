@@ -18,7 +18,7 @@ pip install git+https://github.com/charlielito/extended_rospylogs
 ```
 
 ## ROS log messages extension
-In `rospy` there are only 5 functions for logging: `rospy.logdebug`, `rospy.loginfo`, `rospy.logwarn`, `rospy.logerr` and `rospy.logfatal`. In `roscpp` you can find other options like `ROS_DEBUG_COND`, `ROS_DEBUG_NAMED`, `ROS_DEBUG_NAMED_COND`, etc (for more info go to [ros logging](http://wiki.ros.org/roscpp/Overview/Logging)).
+In `rospy` there are only 5 functions for logging: `rospy.logdebug`, `rospy.loginfo`, `rospy.logwarn`, `rospy.logerr` and `rospy.logfatal`. In `roscpp` you can find other options like `ROS_DEBUG_COND`, `ROS_DEBUG_NAMED`, `ROS_DEBUG_COND_NAMED`, etc (for more info go to [ros logging](http://wiki.ros.org/roscpp/Overview/Logging)).
 
 The conditional option for logging is very useful when you want to have different logging messages in your nodes, and you want to change it in runtime (because you only can specify the `log_level` when initializing the node).
 
