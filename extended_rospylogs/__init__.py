@@ -1,6 +1,23 @@
 import sys, os
 import rospy
 
-def logdebug_cond(cond, msg, *args, **kwargs):
+def log_cond(cond, msg, logfunction, *args, **kwargs):
+    if type(cond) != bool:
+        raise TypeError("First arguemnt needs to be boolean -> Received: {}".format(type(cond)))
     if cond:
-        rospy.logdebug(msg, *args, **kwargs)
+        logfunction(msg, *args, **kwargs)
+
+def logdebug_cond(cond, msg, *args, **kwargs):
+    log_cond(cond, msg, rospy.logdebug, *args, **kwargs)
+
+def loginfo_cond(cond, msg, *args, **kwargs):
+    log_cond(cond, msg, rospy.loginfo, *args, **kwargs)
+
+def logwarn_cond(cond, msg, *args, **kwargs):
+    log_cond(cond, msg, rospy.logwarn, *args, **kwargs)
+
+def logerr_cond(cond, msg, *args, **kwargs):
+    log_cond(cond, msg, rospy.logerr, *args, **kwargs)
+
+def logfatal_cond(cond, msg, *args, **kwargs):
+    log_cond(cond, msg, rospy.logfatal, *args, **kwargs)
