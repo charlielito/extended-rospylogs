@@ -8,7 +8,7 @@ def log_cond(cond, msg, logfunction, *args, **kwargs):
         append_name = kwargs.pop('show_name', True)
         if append_name:
             name = rospy.get_name().split("/")[-1] #get name and remove "/"
-            msg = "[" + name.upper() + "] " + nmsg
+            msg = "[" + name.upper() + "] " + msg
         logfunction(msg, *args, **kwargs)
 
 def logdebug_cond(cond, msg, *args, **kwargs):
