@@ -25,3 +25,35 @@ def logerr_cond(cond, msg, *args, **kwargs):
 
 def logfatal_cond(cond, msg, *args, **kwargs):
     log_cond(cond, msg, rospy.logfatal, *args, **kwargs)
+
+
+
+DEBUG_LEVEL_0 = 0
+DEBUG_LEVEL_1 = 1
+DEBUG_LEVEL_2 = 2
+DEBUG_LEVEL_3 = 3
+DEBUG_LEVEL_4 = 4
+
+log_functions = {"debug": rospy.logdebug,
+               "info": rospy.loginfo,
+               "warn": rospy.logwarn,
+               "err": rospy.logerr,
+               "fatal": rospy.logfatal}
+
+class Debugger(object):
+    debug_level = 0
+
+    def set_debug_level(self, level):
+        min_lvl = 0
+        max_lvl = 4
+        if (level <= max_lvl and level >= min_lvl):
+            self.debug_level = level
+        else:
+            raise ValueError("debug_level should be between {} and {}".format(min_lvl, max_lvl))
+
+    def debugger(self, debug_level, msg, log_type = "info", *args, **kwargs):
+        if log_type in log_functions:
+            log_cond(self.debug_level >= debug_level, msg,
+                    log_functions[log_type], *args, **kwargs)
+        else:
+            raise ValueError("log_type variable should be one of these: debug, info, warn, err, fatal \n Given: {}".format(log_type))

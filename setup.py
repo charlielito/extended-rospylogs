@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 with open("README.md", "r") as readme:
     setup(
         name = "extended_rospylogs",
-        version = "0.0.3",
+        version = "0.0.4",
         author = "Carlos Alvarez",
         author_email = "candres.alve@gmail.com",
         description = "Extension of logs for rospy based con roscpp.",
