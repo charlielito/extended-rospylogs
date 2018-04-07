@@ -62,6 +62,6 @@ def update_debuggers(list_debugger, debug_level):
     debug = list_debugger[0].debug_level
     if debug != debug_level:
         for debug_obj in list_debugger:
-            obj_name = debug_obj.__class__.name
+            obj_name = debug_obj.__class__.__name__
             debug_obj.debugger(DEBUG_LEVEL_0, "Updating {} to {}".format(obj_name, debug_level))
             debug_obj.set_debug_level(debug_level)
