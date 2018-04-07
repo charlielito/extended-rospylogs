@@ -57,3 +57,7 @@ class Debugger(object):
                     log_functions[log_type], *args, **kwargs)
         else:
             raise ValueError("log_type variable should be one of these: debug, info, warn, err, fatal \n Given: {}".format(log_type))
+
+def update_debuggers(list_debugger, debug_level):
+    for debug_obj in list_debugger:
+        debug_obj.set_debug_level(debug_level)
