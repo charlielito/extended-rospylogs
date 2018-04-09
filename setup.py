@@ -3,9 +3,9 @@ from setuptools import setup, find_packages
 with open("README.md", "r") as readme:
     setup(
         name = "extended_rospylogs",
-        version = "0.0.4",
+        version = "0.0.5",
         author = "Carlos Alvarez",
-        author_email = "candres.alve@gmail.com",
+        author_email = "candres.alv@gmail.com",
         description = "Extension of logs for rospy based con roscpp.",
         long_description = readme.read(),
         license = "MIT",
