@@ -1,6 +1,6 @@
 import sys, os
 import rospy
-
+print("HOla tengo %d hijos", 5)
 def log_cond(cond, msg, logfunction, *args, **kwargs):
     if type(cond) != bool:
         raise TypeError("First arguemnt needs to be boolean -> Received: {}".format(type(cond)))
@@ -10,9 +10,9 @@ def log_cond(cond, msg, logfunction, *args, **kwargs):
             name = rospy.get_name().split("/")[-1] #get name and remove "/"
             msg = "[" + name.upper() + "] " + str(msg)
 
-        # args = [msg] + list(args)
-        # args = [str(arg) for arg in args]
-        logfunction(*args, **kwargs)
+        args = [msg] + list(args)
+        args = [str(arg) for arg in args]
+        logfunction(args, **kwargs)
 
 def logdebug_cond(cond, msg, *args, **kwargs):
     log_cond(cond, msg, rospy.logdebug, *args, **kwargs)
