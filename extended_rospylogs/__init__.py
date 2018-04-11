@@ -10,9 +10,7 @@ def log_cond(cond, msg, logfunction, *args, **kwargs):
             name = rospy.get_name().split("/")[-1] #get name and remove "/"
             msg = "[" + name.upper() + "] " + str(msg)
 
-        args = [msg] + list(args)
-        args = [str(arg) for arg in args]
-        logfunction(args, **kwargs)
+        logfunction(msg, *args, **kwargs)
 
 def logdebug_cond(cond, msg, *args, **kwargs):
     log_cond(cond, msg, rospy.logdebug, *args, **kwargs)
