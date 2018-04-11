@@ -11,6 +11,7 @@ def log_cond(cond, msg, logfunction, *args, **kwargs):
             msg = "[" + name.upper() + "] " + str(msg)
 
         args = [msg] + list(args)
+        args = [str(arg) for arg in args]
         logfunction(*args, **kwargs)
 
 def logdebug_cond(cond, msg, *args, **kwargs):
