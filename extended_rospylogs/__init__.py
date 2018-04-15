@@ -1,6 +1,6 @@
 import sys, os
 import rospy
-print("HOla tengo %d hijos", 5)
+
 def log_cond(cond, msg, logfunction, *args, **kwargs):
     if type(cond) != bool:
         raise TypeError("First arguemnt needs to be boolean -> Received: {}".format(type(cond)))
